@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Remote</string>
+
+    <!-- Connection status: short label (always visible) -->
+    <string name="status_ready">Ready</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+    <string name="status_check_wifi">Check home Wi-Fi</string>
+    <string name="status_tv_unavailable">TV unavailable</string>
+    <string name="status_tv_off">TV is off</string>
+    <string name="status_pairing_required">Family help needed</string>
+    <string name="status_unsupported">Cannot control this TV</string>
+
+    <!-- Connection status: short explanation, shown beneath the status only when needed -->
+    <string name="detail_check_wifi">Connect your phone to home Wi-Fi.</string>
+    <string name="detail_tv_unavailable">Cannot reach the TV. Check that it is powered and connected to home Wi-Fi.</string>
+    <string name="detail_tv_off_press_power">Press Power to turn it on.</string>
+    <string name="detail_tv_off_own_remote">Turn it on with the TV\'s own remote or button.</string>
+    <string name="detail_pairing_required">A family member needs to reconnect this remote to the TV.</string>
+    <string name="detail_unsupported">A family member needs to check the remote settings.</string>
+
+    <!-- Brief feedback when a button is pressed but the TV cannot receive it yet -->
+    <string name="feedback_connecting">Connecting to the TV…</string>
+    <string name="feedback_check_wifi">Connect your phone to home Wi-Fi.</string>
+    <string name="feedback_tv_unavailable">The TV cannot be reached yet. Still trying…</string>
+    <string name="feedback_tv_off">The TV is off. Turn it on with its own remote or button.</string>
+    <string name="feedback_pairing_required">A family member needs to reconnect this remote.</string>
+    <string name="feedback_send_failed">That press may not have reached the TV. Reconnecting…</string>
+
+    <!-- TV selection -->
+    <string name="change_tv">Change TV</string>
+    <string name="choose_tv_title">Choose a TV</string>
+    <string name="choose_tv_question">Which TV do you want to control?</string>
+    <string name="tv_selected">Selected</string>
+    <string name="back_to_remote">Back to the remote</string>
+
+    <!-- Type text -->
+    <string name="type_text">Type text</string>
+    <string name="type_text_instruction">On the TV, select the search box or text box first. Then type here and tap Send to TV.</string>
+    <string name="text_to_send">Text to send</string>
+    <string name="send_to_tv">Send to TV</string>
+    <string name="cancel">Cancel</string>
+    <string name="text_sent">Text sent to the TV.</string>
+    <string name="text_waiting_for_tv">The TV is not connected. Your text stays here. When the TV is back, tap Send to TV.</string>
+    <string name="text_not_confirmed">Could not confirm delivery. Check the TV before sending again.</string>
+    <string name="text_unavailable">Text entry is not available for this TV. Use the remote buttons instead.</string>
+    <string name="text_not_tested">A family member needs to test text entry on this TV first.</string>
+
+    <string name="try_again">Try again</string>
+    <string name="family_settings">Family settings</string>
+
+    <!-- Remote button labels / screen-reader descriptions -->
+    <string name="key_up">Up</string>
+    <string name="key_down">Down</string>
+    <string name="key_left">Left</string>
+    <string name="key_right">Right</string>
+    <string name="key_ok">OK</string>
+    <string name="key_back">Back</string>
+    <string name="key_home">Home</string>
+    <string name="key_volume_up">Volume up</string>
+    <string name="key_volume_down">Volume down</string>
+    <string name="key_mute">Mute</string>
+    <string name="key_power">Power</string>
+    <string name="key_power_off">Turn off</string>
+    <string name="cd_power_off">Turn the TV off</string>
+    <string name="label_vol_up">Vol +</string>
+    <string name="label_vol_down">Vol −</string>
+    <string name="cd_unavailable_suffix">, not available until the TV is connected</string>
+
+    <!-- First-use screen -->
+    <string name="setup_title">Set up your TV remote</string>
+    <string name="setup_body">A family member can connect this phone to your TV.</string>
+    <string name="setup_button">Set up TV</string>
+
+    <!-- Setup completion -->
+    <string name="done_title">Your remote is ready.</string>
+    <string name="done_body">Next time, simply open the app to control the TV.</string>
+    <string name="done_button">Open remote</string>
+</resources>

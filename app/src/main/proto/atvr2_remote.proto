@@ -1,0 +1,114 @@
+// Android TV Remote Service protocol v2 - control channel (TLS, default port 6466).
+//
+// Only the messages this app needs are declared; anything else the TV sends is kept as
+// unknown fields and ignored. Wire compatibility with the target TV must be confirmed on
+// real hardware (see docs/COMPATIBILITY_REPORT.md).
+syntax = "proto2";
+
+package atvr2.remote;
+
+option java_package = "app.seniorremote.protocol.atvr2.proto";
+option java_multiple_files = true;
+
+message RemoteMessage {
+  optional RemoteConfigure remote_configure = 1;
+  optional RemoteSetActive remote_set_active = 2;
+  optional RemoteError remote_error = 3;
+  optional RemotePingRequest remote_ping_request = 8;
+  optional RemotePingResponse remote_ping_response = 9;
+  optional RemoteKeyInject remote_key_inject = 10;
+  optional RemoteImeKeyInject remote_ime_key_inject = 20;
+  optional RemoteImeBatchEdit remote_ime_batch_edit = 21;
+  optional RemoteImeShowRequest remote_ime_show_request = 22;
+  optional RemoteStart remote_start = 40;
+}
+
+message RemoteDeviceInfo {
+  optional string model = 1;
+  optional string vendor = 2;
+  optional int32 unknown1 = 3;
+  optional string unknown2 = 4;
+  optional string package_name = 5;
+  optional string app_version = 6;
+}
+
+message RemoteConfigure {
+  optional int32 code1 = 1;
+  optional RemoteDeviceInfo device_info = 2;
+}
+
+message RemoteSetActive {
+  optional int32 active = 1;
+}
+
+message RemoteError {
+  optional bool value = 1;
+  optional RemoteMessage message = 2;
+}
+
+message RemotePingRequest {
+  optional int32 val1 = 1;
+  optional int32 val2 = 2;
+}
+
+message RemotePingResponse {
+  optional int32 val1 = 1;
+}
+
+enum RemoteDirection {
+  UNKNOWN_DIRECTION = 0;
+  START_LONG = 1;
+  END_LONG = 2;
+  SHORT = 3;
+}
+
+message RemoteKeyInject {
+  // Android KeyEvent key code (e.g. 19 = KEYCODE_DPAD_UP).
+  optional int32 key_code = 1;
+  optional RemoteDirection direction = 2;
+}
+
+message RemoteStart {
+  optional bool started = 1;
+}
+
+// Text input. Field names follow the open-source client; several meanings are not documented.
+message RemoteTextFieldStatus {
+  optional int32 counter_field = 1;
+  optional string value = 2;
+  optional int32 start = 3;
+  optional int32 end = 4;
+  optional int32 int5 = 5;
+  optional string label = 6;
+}
+
+message RemoteImeShowRequest {
+  optional RemoteTextFieldStatus remote_text_field_status = 2;
+}
+
+message RemoteImeObject {
+  optional int32 start = 1;
+  optional int32 end = 2;
+  optional string value = 3;
+}
+
+message RemoteEditInfo {
+  optional int32 insert = 1;
+  optional RemoteImeObject text_field_status = 2;
+}
+
+message RemoteImeBatchEdit {
+  optional int32 ime_counter = 1;
+  optional int32 field_counter = 2;
+  repeated RemoteEditInfo edit_info = 3;
+}
+
+message RemoteAppInfo {
+  optional int32 counter = 1;
+  optional string app_package = 12;
+}
+
+message RemoteImeKeyInject {
+  optional RemoteAppInfo app_info = 1;
+  optional RemoteTextFieldStatus text_field_status = 2;
+}
